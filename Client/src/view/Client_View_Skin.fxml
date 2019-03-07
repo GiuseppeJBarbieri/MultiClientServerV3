@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Client_View_Controller">
+   <children>
+      <TextArea fx:id="chatTextArea" layoutX="13.0" layoutY="54.0" prefHeight="284.0" prefWidth="575.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+      <Button fx:id="messageBtn" layoutX="14.0" layoutY="338.0" mnemonicParsing="false" text="Send To Server" AnchorPane.leftAnchor="10.0" />
+      <TextField fx:id="messageTxt" layoutX="107.0" layoutY="338.0" prefHeight="25.0" prefWidth="482.0" AnchorPane.leftAnchor="107.0" AnchorPane.rightAnchor="10.0" />
+      <Label layoutX="529.0" layoutY="6.0" text="Client View" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="6.0" />
+      <Button fx:id="loginBtn" layoutX="368.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Login" AnchorPane.leftAnchor="15.0" />
+      <TextField fx:id="usernameTxt" alignment="CENTER" layoutX="145.0" layoutY="14.0" prefHeight="25.0" prefWidth="140.0" promptText="Username" />
+   </children>
+</AnchorPane>

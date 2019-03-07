@@ -1,0 +1,10 @@
+package model;
+
+import java.io.Serializable;
+
+public class Message_Object implements Serializable {
+
+	private String message;
+	
+	
+}

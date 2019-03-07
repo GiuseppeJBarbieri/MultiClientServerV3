@@ -1,0 +1,34 @@
+package controller;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+
+import view.Server_View_Controller;
+
+public class Server_Thread implements Runnable {
+
+	private Server_View_Controller serverController;
+	private ServerSocket serverSocket;
+
+	public Server_Thread(Server_View_Controller serverController) {
+		try {
+			this.serverController = serverController;
+			serverSocket = new ServerSocket(8000);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+	}
+
+	@Override
+	public void run() {
+		try {
+			serverController.appendText("Server Started!");
+			while (true) {
+				
+			}
+		} catch (IOException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+
+}

@@ -1,0 +1,21 @@
+package controller;
+
+import view.Client_View_Controller;
+
+public class ClientController implements Runnable {
+
+	private String hostname;
+	private int port;
+	private Client_View_Controller clientViewController;
+	private String username;
+	public ClientController(String hostname, int port, Client_View_Controller clientViewController, String username) {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

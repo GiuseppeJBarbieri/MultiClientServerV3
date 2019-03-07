@@ -1,0 +1,13 @@
+package controller;
+
+import java.io.ObjectOutputStream;
+import java.net.Socket;
+
+public class ServerDataController {
+
+	public void directInformationRequest(Object object, ObjectOutputStream outputToClient) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,40 @@
+package controller;
+
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
+
+import model.Login_Object;
+import view.Client_View_Controller;
+
+public class WriteThread {
+	private ObjectOutputStream output;
+	private Socket socket;
+	private ClientController clientController;
+	private Client_View_Controller clientViewController;
+	private String username;
+	
+
+	public WriteThread(Socket socket, ClientController clientController, Client_View_Controller clientViewController,
+			String username) {
+		this.socket = socket;
+		this.clientController = clientController;
+		this.clientViewController = clientViewController;
+		this.username = username;
+		
+		try {
+			output = new ObjectOutputStream(socket.getOutputStream());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void writeMessage(Object obj) {
+		if(obj.getClass() == Login_Object.class) {
+			
+		}
+	}
+
+
+}

@@ -1,0 +1,20 @@
+package controller;
+
+import java.net.Socket;
+
+import view.Client_View_Controller;
+
+public class ReadThread implements Runnable {
+
+	
+	public ReadThread(Socket socket, ClientController clientController, Client_View_Controller clientViewController) {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

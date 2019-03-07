@@ -1,0 +1,17 @@
+package controller;
+
+import view.Server_View_Controller;
+
+public class Server_Thread implements Runnable {
+
+	public Server_Thread(Server_View_Controller server_View_Controller) {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

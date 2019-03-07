@@ -1,0 +1,11 @@
+package controller;
+
+import view.Server_View_Controller;
+
+public class Server_Thread {
+
+	public Server_Thread(Server_View_Controller server_View_Controller) {
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,11 @@
+package controller;
+
+import java.net.Socket;
+
+public class UserThread implements Runnable {
+
+	public UserThread(Socket socket, Server_Thread server_Thread) {
+		// TODO Auto-generated constructor stub
+	}
+
+}

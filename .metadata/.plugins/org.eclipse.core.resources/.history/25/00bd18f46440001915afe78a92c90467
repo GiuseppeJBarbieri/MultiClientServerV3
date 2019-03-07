@@ -1,0 +1,14 @@
+package controller;
+
+import java.net.Socket;
+
+import view.Client_View_Controller;
+
+public class WriteThread {
+
+	public WriteThread(Socket socket, ClientController clientController, Client_View_Controller clientViewController,
+			String username) {
+		// TODO Auto-generated constructor stub
+	}
+
+}

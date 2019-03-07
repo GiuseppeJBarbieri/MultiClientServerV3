@@ -1,0 +1,29 @@
+package controller;
+
+import java.net.Socket;
+
+import view.Client_View_Controller;
+
+public class WriteThread {
+	private Socket socket;
+	private ClientController clientController;
+	private Client_View_Controller clientViewController;
+	private String username;
+	
+
+	public WriteThread(Socket socket, ClientController clientController, Client_View_Controller clientViewController,
+			String username) {
+
+		this.socket = socket;
+		this.clientController = clientController;
+		this.clientViewController = clientViewController;
+		this.username = username;
+		
+	}
+	
+	public void writeMessage() {
+		
+	}
+
+
+}

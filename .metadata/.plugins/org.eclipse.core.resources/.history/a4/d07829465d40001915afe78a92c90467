@@ -1,0 +1,48 @@
+package view;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import controller.ChatClient;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+public class Client_View_Controller implements Initializable {
+
+	@FXML
+	private Button messageBtn, loginBtn;
+	@FXML
+	private TextField messageTxt, usernameTxt;
+	@FXML
+	private TextArea chatTextArea;
+
+	@SuppressWarnings("unused")
+	private Stage stage;
+	
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		messageBtn.setOnAction(e -> sendMessage());
+		loginBtn.setOnAction(e -> login());
+	}
+	
+	private void login() {
+		//client = new ChatClient("192.168.26.105", 8000, this, usernameTxt.getText());
+	}
+
+	private void sendMessage() {
+	}
+
+	public void setStage(Stage stage) {
+		this.stage = stage;
+	}
+	
+	
+	public void appendText(String message) {
+		chatTextArea.appendText(message + "\n");
+	}
+
+}

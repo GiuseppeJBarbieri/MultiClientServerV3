@@ -1,0 +1,17 @@
+package controller;
+
+import java.io.ObjectOutputStream;
+
+import view.Server_View_Controller;
+
+public class ServerDataController {
+
+	public void directInformationRequest(Object object, ObjectOutputStream outputToClient, Server_View_Controller viewController) {
+		
+		if(object.getClass() == Login_Object.class) {
+			
+		}
+		
+	}
+
+}
