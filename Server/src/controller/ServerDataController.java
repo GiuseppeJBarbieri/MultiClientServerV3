@@ -1,24 +1,17 @@
 package controller;
 
-import java.io.ObjectOutputStream;
-
 import model.Login_Object;
 import model.Message_Object;
-import view.Server_View_Controller;
+import requests.Login_Request;
+import requests.Message_Request;
 
 public class ServerDataController {
 
-	public void directInformationRequest(Object object, ObjectOutputStream outputToClient,
-			Server_View_Controller viewController, Server_Thread server_Thread) {
+	public void directInformationRequest(Object object, Server_Thread server_Thread, UserThread userThread) {
 		if (object.getClass() == Login_Object.class) {
-			Login_Object loginObj = (Login_Object) object;
-			server_Thread.addUserName(loginObj.getUserName());
-			String serverMessage = "New User Connected: " + loginObj.getUserName();
-			System.out.println("Sending Message");
-			server_Thread.broadcast(serverMessage);
+			new Login_Request(object, server_Thread, userThread);
 		} else if(object.getClass() == Message_Object.class) {
-			Message_Object message = (Message_Object) object;
-			server_Thread.broadcast(message.getMessage());
+			new Message_Request(object, server_Thread);
 		}
 
 	}

@@ -19,9 +19,10 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import model.User_Model;
 
-public class Server_View_Controller  implements Initializable {
-	
+public class Server_View_Controller implements Initializable {
+
 	@FXML
 	private Button startBtn, messageBtn;
 	@FXML
@@ -29,25 +30,29 @@ public class Server_View_Controller  implements Initializable {
 	@FXML
 	private TextField messageTxt;
 	@FXML
-	private TableColumn<String, String> ipCol;
+	private TableColumn<User_Model, String> ipCol, usernameCol;
 	@FXML
-	private TableView<String> ipTblView;
+	private TableView<User_Model> ipTblView;
 
 	@SuppressWarnings("unused")
 	private Stage stage;
 	private Thread t1;
 	private Server_Thread server;
-	private ArrayList<String> userList;
-	private Set<Socket> socketList;
-	
+	private ArrayList<User_Model> userList;
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		socketList = new HashSet<Socket>();
 		userList = new ArrayList<>();
+		setTableColumns();
 		startBtn.setOnAction(e -> startServer());
 		messageBtn.setOnAction(e -> sendMessage());
 	}
-	
+
+	private void setTableColumns() {
+		ipCol.setCellValueFactory(new PropertyValueFactory<User_Model, String>("ipAddy"));
+		usernameCol.setCellValueFactory(new PropertyValueFactory<User_Model, String>("username"));
+	}
+
 	private void startServer() {
 		server = new Server_Thread(this);
 		t1 = new Thread(server);
@@ -58,26 +63,36 @@ public class Server_View_Controller  implements Initializable {
 	public void setStage(Stage stage) {
 		this.stage = stage;
 	}
-	
+
 	public void appendText(String message) {
-		consoleTextArea.appendText(message + "\n"); 
+		consoleTextArea.appendText(message + "\n");
 	}
-	
+
 	private void sendMessage() {
+		server.broadcast(messageTxt.getText());
 	}
-	
+
 	public void appendToTextField(String string) {
 		consoleTextArea.appendText(string + "\n");
 	}
 
-	public void addUser(Socket socket) {
-		socketList.add(socket);
-		for(Socket e: socketList) {
-			userList.add(e.getInetAddress().toString());
-		}
-		
-		ObservableList<String> tableList = FXCollections.observableArrayList(userList);
+	public void addUser(Socket socket, String username) {
+		userList.add(new User_Model(socket.getInetAddress().toString(), username));
+
+		ObservableList<User_Model> tableList = FXCollections.observableArrayList(userList);
 		ipTblView.setItems(tableList);
+	}
+
+	public void removeUser(Socket socket, String userName) {
+		for (User_Model e : userList) {
+			if (e.getIpAddy().equals(socket.getInetAddress().toString()) && userName.equals(e.getUsername())) {
+				userList.remove(e);
+				break;
+			}
+		}
+		ObservableList<User_Model> tableList = FXCollections.observableArrayList(userList);
+		ipTblView.setItems(tableList);
+
 	}
 
 }

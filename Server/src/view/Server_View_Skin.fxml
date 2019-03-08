@@ -10,12 +10,13 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Server_View_Controller">
    <children>
       <Button fx:id="startBtn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Start Server" />
-      <TextArea fx:id="consoleTextArea" layoutX="14.0" layoutY="45.0" prefHeight="341.0" prefWidth="437.0" />
-      <Button fx:id="messageBtn" layoutX="464.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="122.0" text="Send Message" />
-      <TextField fx:id="messageTxt" layoutX="302.0" layoutY="14.0" />
-      <TableView fx:id="ipTblView" layoutX="464.0" layoutY="45.0" prefHeight="341.0" prefWidth="122.0">
+      <TextArea fx:id="consoleTextArea" layoutX="14.0" layoutY="45.0" prefHeight="341.0" prefWidth="359.0" />
+      <Button fx:id="messageBtn" layoutX="383.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="203.0" text="Send Message" />
+      <TextField fx:id="messageTxt" layoutX="226.0" layoutY="14.0" />
+      <TableView fx:id="ipTblView" layoutX="383.0" layoutY="45.0" prefHeight="341.0" prefWidth="203.0">
         <columns>
           <TableColumn fx:id="ipCol" prefWidth="199.0" text="IP" />
+            <TableColumn fx:id="usernameCol" prefWidth="199.0" text="Username" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

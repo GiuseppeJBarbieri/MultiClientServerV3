@@ -34,9 +34,8 @@ public class Server_Thread implements Runnable {
 			while (true) {
 				socket = serverSocket.accept();
 				viewController.appendText("New User Connected!");
-				UserThread newUser = new UserThread(socket, viewController, this);
+				UserThread newUser = new UserThread(socket, this);
 				userThreads.add(newUser);
-				viewController.addUser(socket);
 				t1 = new Thread(newUser);
 				t1.setDaemon(true);
 				t1.start();
@@ -55,8 +54,21 @@ public class Server_Thread implements Runnable {
 	/**
 	 * Stores username of the newly connected client.
 	 */
-	void addUserName(String userName) {
+	public void addUserName(String userName) {
 		userNames.add(userName);
+		viewController.addUser(socket, userName);
+	}
+	
+	/**
+	 * When a client is disconneted, removes the associated username and UserThread
+	 */
+	public void removeUser(String userName, UserThread aUser) {
+		boolean removed = userNames.remove(userName);
+		if (removed) {
+			userThreads.remove(aUser);
+			viewController.removeUser(socket, userName);
+			viewController.appendText("The user " + userName + " has disconnected!");
+		}
 	}
 	
 }

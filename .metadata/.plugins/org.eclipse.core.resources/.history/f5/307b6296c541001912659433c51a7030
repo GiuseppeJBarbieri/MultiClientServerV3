@@ -1,0 +1,11 @@
+package requests;
+
+import controller.Server_Thread;
+
+public class Message_Request {
+
+	public Message_Request(Object object, Server_Thread server_Thread) {
+		// TODO Auto-generated constructor stub
+	}
+
+}
